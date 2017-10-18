@@ -10,7 +10,7 @@ url = 'http://www.reactiongifs.com/'
   div_main.css('div.post').each do |post|
     title =  post.css('h2').text
     gif_url = post.css('div.entry img').attr('src')
-    File.open(title, 'w') do |new_file|
+    File.open("gifs/#{title}", 'w') do |new_file|
       puts "Descargando gif: #{title}"
       open(gif_url, 'r') do |gif|
         new_file.write(gif.read)
